@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<center>
+	<h1> Display Student Records </h1> <hr/>
+	<span th:text="${msg}"></span>
+	<table border="1" width="80%">
+		<tr>
+			<th> Roll </th>
+			<th> Name </th>
+			<th> Address </th>
+			<th> Update </th>
+			<th> Delete </th>
+		</tr>
+		
+		<tr th:each="tab: ${data}">
+			<td th:text="${tab.roll}">  </td>
+			<td th:text="${tab.name}">  </td>
+			<td th:utext="${tab.address}">  </td>
+			<td> <a th:href="@{/edit/{id} (id = ${tab.id})}"> Update </a> </td>
+			<td> <a th:href="@{/delete/{id} (id = ${tab.id})}"> Delete </a></td>
+		</tr>
+	</table>
+</center>
+</body>
+</html>
